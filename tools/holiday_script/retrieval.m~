@@ -1,0 +1,6 @@
+rep = importdata('feature/holiday/imagenet-matconvnet-alex_14.mat');
+query = importdata('feature/holiday/query.mat');
+input_rep = {};
+input_rep{end+1} = rep';
+PCA_range = [32 64 128 256 512];
+[~,map] = retrieval_pipeline(query,input_rep,PCA_range);
