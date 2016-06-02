@@ -1,13 +1,13 @@
-rep = importdata('feature/oxford_building/imagenet-matconvnet-alex_17.mat');
+rep = importdata('feature/oxford_building/imagenet-matconvnet-alex_4.mat');
 query = importdata('feature/oxford_building/query_crop.mat');
-query_mat = importdata('feature/oxford_building/query_imagenet-matconvnet-alex_17.mat');
+query_mat = importdata('feature/oxford_building/query_imagenet-matconvnet-alex_4.mat');
 query_rep = {};
 query_rep{end+1} = query_mat'; 
 query.query_mat = query_rep;
 input_rep = {};
 input_rep{end+1} = rep';
 PCA_range = [32 64 128 256 512,1024];
-[~,map] = retrieval_pipeline(query,input_rep,PCA_range);
+[~,map] = retrieval_pipeline(query,input_rep);
 plot(PCA_range,map);
 xlabel('PCA dimensions');
 ylabel('map');
