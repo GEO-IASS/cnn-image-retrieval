@@ -1,4 +1,4 @@
-rep = importdata('feature/holiday/imagenet-matconvnet-alex_15.mat');
+rep = importdata('feature/holiday/imagenet-matconvnet-alex_17.mat');
 query = importdata('feature/holiday/query.mat');
 input_rep = {};
 input_rep{end+1} = rep';
