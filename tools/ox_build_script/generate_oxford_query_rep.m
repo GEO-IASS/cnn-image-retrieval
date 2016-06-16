@@ -1,5 +1,5 @@
 add_path();
-model_name = 'imagenet-vgg-m';
+model_name = 'imagenet-vgg-m ';
 save_prefix = ['feature/oxford_building/query_',model_name,'_'];
 query_data = importdata('feature/oxford_building/query_crop.mat');
 file_name = query_data.query_filename;
