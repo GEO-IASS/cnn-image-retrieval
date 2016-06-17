@@ -1,9 +1,9 @@
 %exact the message in txt and storage in query_crop.mat
-save_file = 'feature/oxford_building/query_crop.mat';
-file_name = importdata('feature/oxford_building/file_name.mat');
+save_file = 'feature/paris/query_crop.mat';
+file_name = importdata('feature/paris/file_name.mat');
 query = struct('gt',[],'ignore_list',[],'file_name',[],'is_query',[],'query_filename',[],'query_point',[]);
 query.file_name = file_name;
-root_path = 'data/ox_build_files/';
+root_path = 'data/paris_files/';
 gt = zeros(55,5063);
 ignore_list = zeros(55,5063);
 is_query = zeros(5063,1); 
