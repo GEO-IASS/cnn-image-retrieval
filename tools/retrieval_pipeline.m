@@ -24,7 +24,7 @@ if nargin == 2
         end
         hdSimMax = max(hdSimMax, hdSim);
         hdSimSumMax = (hdSimSumMax+hdSimMax);
-        fprintf('total is %d and now is %d',numel(rep),i);
+        fprintf('total is %d and now is %d \n',numel(rep),i);
     end
     map = mAP(hdSimSumMax,query.gt,query.ignore_list);
 elseif nargin == 3
@@ -58,7 +58,7 @@ elseif nargin == 3
             end
             hdSimMax = max(hdSimMax, hdSim);
             hdSimSumMax = (hdSimSumMax+hdSimMax);
-            fprintf('total is %d and now is %d',numel(rep),i);
+            fprintf('total is %d and now is %d \n',numel(PCA_range),i);
         end
         result(PCA_range==k) = mAP(hdSimSumMax,query.gt,query.ignore_list);
     end

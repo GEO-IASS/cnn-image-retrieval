@@ -1,5 +1,5 @@
-root_path = 'data/oxbuild_images/';
-save_path = 'feature/oxford_building/file_name.mat';
+root_path = 'data/paris_images/';
+save_path = 'feature/paris/file_name.mat';
 image_path_list = dir(strcat(root_path,'*.jpg'));
 file_name = {};
 for i = 1:numel(image_path_list)
