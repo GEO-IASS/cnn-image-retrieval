@@ -23,7 +23,7 @@ for i=rep_range
 end
 query.query_mat = query_rep;
 PCA_range = [32 64 128 256 512,1024];
-[~,map] = retrieval_pipeline(query,input_rep,PCA_range);
+[~,map] = svm_retrieval_pipeline(query,input_rep);
 plot(PCA_range,map);
 xlabel('PCA dimensions');
 ylabel('map');
