@@ -1,5 +1,5 @@
 add_path();
-model_name = 'imagenet-vgg-m';
+model_name = 'imagenet-resnet-152-dag';
 save_prefix = ['feature/oxford_building/',model_name,'_'];
 file_name = importdata('feature/oxford_building/file_name.mat');
 for i=1:numel(file_name)

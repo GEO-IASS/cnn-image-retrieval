@@ -1,0 +1,13 @@
+query = importdata('feature/oxford_building/query_crop.mat');
+query_rep = {};
+input_rep = {};
+pre_rep = importdata(['feature/oxford_building/caffe_feature_fc6.mat']);
+input_rep{end+1} = pre_rep';
+pre_query_mat = importdata(['feature/oxford_building/query_caffe_feature_fc6.mat']);
+query_rep{end+1} = pre_query_mat';
+query.query_mat = query_rep;
+PCA_range = [32 64 128 256 512,1024];
+[~,map] = lretrieval_pipeline(query,input_rep);
+plot(PCA_range,map);
+xlabel('PCA dimensions');
+ylabel('map');

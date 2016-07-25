@@ -20,9 +20,10 @@ if nargin == 2
         end
         %get svm w and b
         [w,b] = exemplar_svm(hdQRPNL2',hdRPNL2');
-        for j=1:size(w,1)
-            hdSim = [hdSim;(hdQRPNL2(:,j:j)'.*w(j:j,:)+b(j))*(hdRPNL2.*repmat(w(j:j,:)',[1 size(hdRPNL2,2)]))];
-        end
+        hdSim = w*hdRPNL2 + repmat(b,[1 size(hdRPNL2,2)]);
+        %for j=1:size(w,1)
+            %hdSim = [hdSim;(hdQRPNL2(:,j:j)'.*w(j:j,:)+b(j))*(hdRPNL2.*repmat(w(j:j,:)',[1 size(hdRPNL2,2)]))];
+        %end
         %hdSim = hdQRPNL2'*hdRPNL2;
         if i==1
             hdSimSumMax = zeros(size(hdSim));

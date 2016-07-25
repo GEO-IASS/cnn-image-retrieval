@@ -1,7 +1,7 @@
 function [w,b] = exemplar_svm(query,rep)
 %EXAMPLAR_SVM Summary of this function goes here
 %   Detailed explanation goes here
-rand_num = 100;
+rand_num = 1000;
 group = repmat({'0'},rand_num+1,1);
 group{1} = '1';
 [query_n,query_m] = size(query);

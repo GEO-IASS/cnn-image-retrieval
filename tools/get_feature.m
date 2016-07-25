@@ -1,4 +1,4 @@
-function get_feature(file_name,range,save_prefix,network)
+function get_feature(file_name,range,save_prefix,network,is_squeeze)
 %use network to get feature
 %range:the layer_num in the network
 %file_name:the input file name
@@ -22,7 +22,11 @@ for i=1:numel(file_name)
         network.eval({network.layers(1).inputs,image});
         for j=1:numel(range)
             vector = network.vars(range(j)).value;
-            vector = reshape(vector,[1,prod(size(vector))]);
+            if nargin == 4
+                vector = reshape(vector,[1,prod(size(vector))]);
+            else
+                vector = reshape(vector,[1,size(vector)]);
+            end
             feature_mat{1,j} = [feature_mat{1,j};vector];
         end
         fprintf('total is %d and now is %d \n',numel(file_name),i);
@@ -30,7 +34,9 @@ for i=1:numel(file_name)
         res = vl_simplenn(network,image);
         for j=1:numel(range)
             vector = res(range(j)).x;
-            vector = reshape(vector,[1,prod(size(vector))]);
+            if nargin == 4
+                vector = reshape(vector,[1,prod(size(vector))]);
+            end
             feature_mat{1,j} = [feature_mat{1,j};vector];
         end
         fprintf('total is %d and now is %d \n',numel(file_name),i);

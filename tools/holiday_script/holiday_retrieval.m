@@ -15,10 +15,12 @@ for i=rep_range
         end
     end
 end
-
+input_rep = {};
+pre_rep = importdata('feature/holiday/tensor_image-matconvnet-alex_14_36mat.mat');
+input_rep{end+1} = pre_rep';
 query = importdata('feature/holiday/query.mat');
 PCA_range = [32 64 128 256 512];
-[~,map] = retrieval_pipeline(query,input_rep,PCA_range);
+[~,map] = retrieval_pipeline(query,input_rep);
 plot(PCA_range,map);
 xlabel('PCA dimensions');
 ylabel('map');
